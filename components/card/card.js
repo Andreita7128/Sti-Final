@@ -84,12 +84,13 @@ class CardOption extends HTMLElement {
     }
 
     cargarPregunta() {
-        console.log(this.questions.length)
+        
         const question = this.questions[this.actual];
         document.getElementById('question').textContent = question.question;
     }
 
     mostrarAnterior() {
+      
         if (this.actual > 0) {
             this.actual--;
             this.cargarPregunta();
@@ -97,6 +98,7 @@ class CardOption extends HTMLElement {
     }
 
     mostrarSiguiente() {
+       
         let number = this.questions.length;
         if (this.actual < number - 1) {
             this.actual++;
@@ -190,10 +192,10 @@ class CardOption extends HTMLElement {
     `
 
       // Event listener para el botón "Anterior"
-      document.getElementById('previousBtn').addEventListener('click', this.mostrarAnterior);
+      document.getElementById('previousBtn').addEventListener('click', ()=>{this.mostrarAnterior()});
 
       // Event listener para el botón "Siguiente"
-      document.getElementById('nextBtn').addEventListener('click', this.mostrarSiguiente);
+      document.getElementById('nextBtn').addEventListener('click', ()=>{this.mostrarSiguiente()});
   
       // Cargar la primera pregunta al cargar la página
       this.cargarPregunta();
@@ -202,3 +204,5 @@ class CardOption extends HTMLElement {
 
 customElements.define('card-option', CardOption)
 export default CardOption
+
+
