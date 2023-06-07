@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+}
+
+:root {
+    --color-red: #FC7753;
+    --color-blue: #7494EA;
+    --color-accent: #1F1F1F;
+    --color-complement-1: #B6D6CC;
+    --color-complement-2: #A8A8A8;
+    --color-white-base: #FFF9FB;
+    --color-bg: #EEEEEE;
+    --color-text: #2D2D2D;
+    --color-text-disable: #838383;
+    --color-white: #EEEEEE;
+
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 35px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 19px;
+}
+
+h5 {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.body_1 {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.body_2 {
+    font-weight: 400;
+    font-size: 19px;
+}
+
+
+.caption {
+    font-weight: 400;
+    font-size: 11px;
+}
