@@ -67,10 +67,7 @@ h5 {
 }
 
 main {
-    display: flex;
-    flex-direction: row;
     padding: 0px 11%;
-    justify-content: space-between;
 }
 
 header {
@@ -83,4 +80,16 @@ header {
 
 img {
     width: 5%;
+}
+
+#cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#container-table {
+    padding: 50px 6%;
+    display: flex;
+    justify-content: center;
 }
