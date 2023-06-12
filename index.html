@@ -10,7 +10,7 @@
     <!--Bootstrap docs-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
     <!--Tipography-->
@@ -21,8 +21,17 @@
 
 <body>
 
-    <card-option title="Busca tu Compa" description="Ingresa un valor de 1 a 10 puntuando las habilidades que requiere tu proyecto para
-    encontrar un compañero que se adapte a ello." firstplaceholder="Ingresa el nombre de tú proyecto" secondinput="Link" secondplaceholder="Ingresa un link para ver tu proyecto"></card-option>
+    <header>
+        <img src="./img/logo.png" alt="">
+        <h1>Encuentra tu compa</h1>
+    </header>
+
+    <main>
+        <card-option-compa></card-option-compa>
+        <card-option-project></card-option-project>
+
+    </main>
+
 
     <script type="module" src="./components/components.js"></script>
 

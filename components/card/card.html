@@ -36,8 +36,15 @@
                         <input type="text" id="name" placeholder="Ingresa el nombre de tú proyecto">
                     </div>
                     <div class="label_input">
-                        <label for="link">Link</label>
-                        <input type="text" id="link" placeholder="Ingresa un link para ver tu proyecto">
+                        <label>Programa</label>
+                        <select class="form-select btn_program" aria-label="Default select example">
+                            <option selected>Selecciona tu programa </option>
+                            <option value="DMI">Diseño de Medios Interactivos</option>
+                            <option value="SIS">Ingeníeria de Sistemas</option>
+                            <option value="IT">Ingeníeria Telemática</option>
+                            <option value="M">Mercadeo</option>
+                        </select>
+                        <p class="caption">Si haces simultaneidad selecciona el principal</p>
                     </div>
                 </div>
             </div>
@@ -46,7 +53,7 @@
             <div class="number_K">
                 <h5>¿Cuántas recomendaciones deseas?</h5>
                 <select class="form-select btn_drop" aria-label="Default select example">
-                    <option selected>0 </option>
+                    <option selected>0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -68,10 +75,8 @@
             <div class="question">
                 <p class="body_1">Desarrollo para IoT (Internet de las cosas):</p>
                 <div class="container_slider">
-                    <label for="score" id="sliderValue"><h5>1</h5></label>
-                    <input type="range" min="1" max="10" value="5" class="slider" id="score" step="1">
-                    <label for="score"><h5>10</h5></label>
-                </div>
+                    <p id="inputNumber">1</p>
+                    <input type="range" min="1" max="10" value="5" class="slider" id="score" step="1">                </div>
             </div>
 
             <div class="nav_questions">
