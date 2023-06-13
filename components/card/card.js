@@ -1,7 +1,11 @@
 class CardOption extends HTMLElement {
     constructor() {
         super();
+        this.hardSkills = [0,0,0,0,0,0,0,0,0,0,0,0]
+        this.softSkills = [0,0,0,0,0,0,0,0,0,0]
         this.actual = 0;
+        this.currentIndex = 0;
+        
         this.questions = [{
                 "question": "Desarrollo para IoT (Internet de las cosas):"
             },
@@ -69,9 +73,29 @@ class CardOption extends HTMLElement {
     mostrarSiguiente() {
 
         let number = this.questions.length;
+
         if (this.actual < number - 1) {
+
+            const slider = document.querySelector('.slider');
+
+            this.saveAnswer(slider.value)
             this.actual++;
+            this.answers.push();
             this.cargarPregunta();
+        }
+
+   
+
+        
+
+    }
+
+    saveAnswer(){
+        if(this.currentIndex<hardSkills.length){
+            // Save hardSkill 
+
+        }else{
+
         }
     }
 
