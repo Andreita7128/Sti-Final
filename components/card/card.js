@@ -1,3 +1,4 @@
+import { getTeam, BALANCED, HARD_SKILLS, SOFT_SKILLS } from "../service/serviceAPI.js";
 class CardOption extends HTMLElement {
     constructor() {
         super();
@@ -116,8 +117,22 @@ class CardOption extends HTMLElement {
             this.actual++;
             if(this.actual < this.questions.length-1)
                 this.cargarPregunta();
+
         }else{
+
             
+            const projectaName = document.querySelector('#name').value;
+            const description = 'Description';
+            const link = document.querySelector('#link').value;
+
+      
+            const data = {
+                projectaName : [projectaName, description, link].concat(this.hardSkills),
+                softSkills:this.softSkills
+            }
+
+            getTeam(data)
+
          
         }
 
