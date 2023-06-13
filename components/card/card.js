@@ -1,11 +1,11 @@
 class CardOption extends HTMLElement {
     constructor() {
         super();
-        this.hardSkills = [0,0,0,0,0,0,0,0,0,0,0,0]
-        this.softSkills = [0,0,0,0,0,0,0,0,0,0]
+        this.hardSkills = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        this.softSkills = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         this.actual = 0;
 
-        
+
         this.questions = [{
                 "question": "Desarrollo para IoT (Internet de las cosas):"
             },
@@ -87,12 +87,12 @@ class CardOption extends HTMLElement {
         if (this.actual === 0) {
             containerBtn.style.background = '#FFF9FB';
             containerText.style.color = '#FFF9FB';
-        } else if (this.actual > 0 ){
+        } else if (this.actual > 0) {
             containerBtn.style.background = '#1F1F1F';
             containerText.style.color = '#2D2D2D';
         }
 
-        if(this.actual === this.questions.length - 1) {
+        if (this.actual === this.questions.length - 1) {
             containerTextNext.textContent = 'Generar Recomendación'
         }
     }
@@ -114,41 +114,30 @@ class CardOption extends HTMLElement {
             const slider = document.querySelector('.slider');
             this.saveAnswer(slider.value)
             this.actual++;
-            if(this.actual < this.questions.length-1)
+            if (this.actual < this.questions.length - 1)
                 this.cargarPregunta();
-        }else{
-            
-         
+        } else {
+
+
         }
-
-   
-
-        
-
     }
 
-    saveAnswer(score){
+    saveAnswer(score) {
 
-        if(this.actual<this.hardSkills.length){
+        if (this.actual < this.hardSkills.length) {
             // Save hardSkill 
-            this.hardSkills[this.actual]= score;
-        }else{
+            this.hardSkills[this.actual] = score;
+        } else {
             // Save softSkill 
-            this.softSkills[this.actual-this.hardSkills.length]=score;
+            this.softSkills[this.actual - this.hardSkills.length] = score;
 
         }
 
 
     }
-
-    cardRender() {
-
-    }
-
 
     connectedCallback() {
         this.render();
-        this.cardRender();
     }
 
     render() {
@@ -175,26 +164,19 @@ class CardOption extends HTMLElement {
                 </div>
             </section>
             <section class="card_questions">
-                <div class="number_K">
-                    <h5>¿Cuántas recomendaciones deseas?</h5>
-                    <select class="form-select btn_drop" aria-label="Default select example">
-                        <option selected>0 </option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
+                <div class="agregation">
+                    <h5>¿Qué quieres priorizar?</h5>
+                    <select class="form-select btn_agregation" aria-label="Default select example">
+                        <option selected>Escoge una opción</option>
+                        <option value="hard-skills">Habilidades Duras</option>
+                        <option value="soft-skills">Personalidad</option>
+                        <option value="both">Equilibrado</option>
                     </select>
                 </div>
 
                 <div class="card_sub">
                     <p class="subtitle">Puntúa de 1 a 10</p>
-                    <h5>Habilidades duras</h5>
+                    <h5 id="skills-type">Habilidades duras</h5>
                 </div>
 
                 <div class="question">
