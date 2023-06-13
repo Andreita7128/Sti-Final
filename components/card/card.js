@@ -1,173 +1,194 @@
-import { getTeam, BALANCED, HARD_SKILLS, SOFT_SKILLS } from "../service/serviceAPI.js";
+import {
+  getTeam,
+  BALANCED,
+  HARD_SKILLS,
+  SOFT_SKILLS,
+} from "../service/serviceAPI.js";
+
+import { renderTable } from "../../table.js";
 class CardOption extends HTMLElement {
-    constructor() {
-        super();
-        this.hardSkills = [0,0,0,0,0,0,0,0,0,0,0,0]
-        this.softSkills = [0,0,0,0,0,0,0,0,0,0]
-        this.actual = 0;
+  constructor() {
+    super();
+    this.hardSkills = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    this.softSkills = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    this.actual = 0;
 
-        
-        this.questions = [{
-                "question": "Desarrollo para IoT (Internet de las cosas):"
-            },
-            {
-                "question": "Testing y aseguramiento de la calidad"
-            },
-            {
-                "question": "Ciberseguridad"
-            },
-            {
-                "question": "Machine learning"
-            },
-            {
-                "question": "Desarrollo back end "
-            },
-            {
-                "question": "Desarrollo front end"
-            },
-            {
-                "question": "Edición de video y animación"
-            },
-            {
-                "question": "Diseño UI"
-            },
-            {
-                "question": "Diseño UX"
-            },
-            {
-                "question": "Edición fotográfica"
-            },
-            {
-                "question": "Expresión oral / Pitch"
-            },
-            {
-                "question": "Inglés"
-            },
-            {
-                "question": "A menudo pospongo tareas o responsabilidades importantes hasta el último momento"
-            },
-            {
-                "question": "Suelo generar ideas originales y fuera de lo común en situaciones que requieren creatividad"
-            },
-            {
-                "question": "Cuando no logro completar adecuadamente, ni a tiempo, mi actividad a cargo, suelo delegar esa responsabilidad a otros"
-            },
-            {
-                "question": "En situaciones de colaboración o trabajo en equipo, logro inspirar y guiar a otros hacia el logro de objetivos comunes"
-            },
-            {
-                "question": "Soy una persona que tiende a tomar decisiones de manera independiente y firme, mostrando confianza en mis propias habilidades y convicciones, y no me dejo influir fácilmente por las opiniones de los demás"
-            },
-            {
-                "question": "Tiendo a asumir un papel activo y destacado en situaciones grupales, demostrando liderazgo y habilidades para influir en las decisiones y acciones del grupo, sin imponerme de manera autoritaria y respetando siempre la opinión y el trabajo de mis compañeros"
-            },
-            {
-                "question": "Soy una persona que muestra disposición para enfrentar nuevos desafíos y explorar situaciones fuera de mi zona de confort, demostrando valentía y disposición para probar cosas nuevas"
-            },
-            {
-                "question": "Soy hábil para mantener la calma y tomar decisiones efectivas en situaciones desafiantes o de presión, demostrando resiliencia y adaptabilidad ante las adversidades"
-            },
-            {
-                "question": "Muestro empatía y comprensión hacia las emociones y necesidades de los demás, demostrando una capacidad para conectarme emocionalmente y responder adecuadamente a las situaciones"
-            },
-            {
-                "question": "Tiende a tomar decisiones rápidas y actuar sin pensarlo demasiado, mostrando una inclinación por la espontaneidad y la acción inmediata en lugar de la planificación detallada"
-            },
-        ];
+    this.questions = [
+      {
+        question: "Desarrollo para IoT (Internet de las cosas):",
+      },
+      {
+        question: "Testing y aseguramiento de la calidad",
+      },
+      {
+        question: "Ciberseguridad",
+      },
+      {
+        question: "Machine learning",
+      },
+      {
+        question: "Desarrollo back end ",
+      },
+      {
+        question: "Desarrollo front end",
+      },
+      {
+        question: "Edición de video y animación",
+      },
+      {
+        question: "Diseño UI",
+      },
+      {
+        question: "Diseño UX",
+      },
+      {
+        question: "Edición fotográfica",
+      },
+      {
+        question: "Expresión oral / Pitch",
+      },
+      {
+        question: "Inglés",
+      },
+      {
+        question:
+          "A menudo pospongo tareas o responsabilidades importantes hasta el último momento",
+      },
+      {
+        question:
+          "Suelo generar ideas originales y fuera de lo común en situaciones que requieren creatividad",
+      },
+      {
+        question:
+          "Cuando no logro completar adecuadamente, ni a tiempo, mi actividad a cargo, suelo delegar esa responsabilidad a otros",
+      },
+      {
+        question:
+          "En situaciones de colaboración o trabajo en equipo, logro inspirar y guiar a otros hacia el logro de objetivos comunes",
+      },
+      {
+        question:
+          "Soy una persona que tiende a tomar decisiones de manera independiente y firme, mostrando confianza en mis propias habilidades y convicciones, y no me dejo influir fácilmente por las opiniones de los demás",
+      },
+      {
+        question:
+          "Tiendo a asumir un papel activo y destacado en situaciones grupales, demostrando liderazgo y habilidades para influir en las decisiones y acciones del grupo, sin imponerme de manera autoritaria y respetando siempre la opinión y el trabajo de mis compañeros",
+      },
+      {
+        question:
+          "Soy una persona que muestra disposición para enfrentar nuevos desafíos y explorar situaciones fuera de mi zona de confort, demostrando valentía y disposición para probar cosas nuevas",
+      },
+      {
+        question:
+          "Soy hábil para mantener la calma y tomar decisiones efectivas en situaciones desafiantes o de presión, demostrando resiliencia y adaptabilidad ante las adversidades",
+      },
+      {
+        question:
+          "Muestro empatía y comprensión hacia las emociones y necesidades de los demás, demostrando una capacidad para conectarme emocionalmente y responder adecuadamente a las situaciones",
+      },
+      {
+        question:
+          "Tiende a tomar decisiones rápidas y actuar sin pensarlo demasiado, mostrando una inclinación por la espontaneidad y la acción inmediata en lugar de la planificación detallada",
+      },
+    ];
+  }
+
+  cargarPregunta() {
+    const question = this.questions[this.actual];
+    document.getElementById("question").textContent = question.question;
+
+    const containerBtn = document.getElementById("previousBtn");
+    const containerText = document.getElementById("anterior");
+    const containerTextNext = document.getElementById("siguiente");
+
+    if (this.actual === 0) {
+      containerBtn.style.background = "#FFF9FB";
+      containerText.style.color = "#FFF9FB";
+    } else if (this.actual > 0) {
+      containerBtn.style.background = "#1F1F1F";
+      containerText.style.color = "#2D2D2D";
     }
 
-    cargarPregunta() {
+    if (this.actual === this.questions.length - 1) {
+      containerTextNext.textContent = "Generar Recomendación";
+    }
 
-        const question = this.questions[this.actual];
-        document.getElementById('question').textContent = question.question;
+    if (this.actual < this.hardSkills.length) {
+      document.querySelector("#skills-type").innerHTML = "Habilidades duras";
+    } else {
+      document.querySelector("#skills-type").innerHTML = "Habilidades blandas";
+    }
+  }
 
-        const containerBtn = document.getElementById('previousBtn')
-        const containerText = document.getElementById('anterior')
-        const containerTextNext = document.getElementById('siguiente')
+  mostrarAnterior() {
+    if (this.actual > 0) {
+      this.actual--;
+      this.cargarPregunta();
+    }
+  }
 
-        if (this.actual === 0) {
-            containerBtn.style.background = '#FFF9FB';
-            containerText.style.color = '#FFF9FB';
-        } else if (this.actual > 0 ){
-            containerBtn.style.background = '#1F1F1F';
-            containerText.style.color = '#2D2D2D';
+  async mostrarSiguiente() {
+    if (this.actual === this.questions.length - 1) {
+      const type = document.querySelector(".btn_agregation").value;
+      if (type != "none") {
+        const projectaName = this.querySelector("#name").value;
+        const description = "Description";
+        const link = document.querySelector("#link").value;
+
+        const data = {
+          project: [projectaName, description, link].concat(this.hardSkills),
+          softSkills: this.softSkills,
+        };
+
+        if (type == "hard-skills") {
+
+          const response = await getTeam(data, HARD_SKILLS);
+          renderTable(response);
         }
 
-        if(this.actual === this.questions.length - 1) {
-            containerTextNext.textContent = 'Generar Recomendación'
-        }
-    }
+        if (type == "soft-skills") {
+          const response =  await getTeam(data, SOFT_SKILLS);
 
 
-    mostrarAnterior() {
-
-        if (this.actual > 0) {
-            this.actual--;
-            this.cargarPregunta();
-        }
-    }
-
-    mostrarSiguiente() {
-
-
-        if (this.actual < this.questions.length) {
-
-            const slider = document.querySelector('.slider');
-            this.saveAnswer(slider.value)
-            this.actual++;
-            if(this.actual < this.questions.length-1)
-                this.cargarPregunta();
-
-        }else{
-
-            
-            const projectaName = document.querySelector('#name').value;
-            const description = 'Description';
-            const link = document.querySelector('#link').value;
-
-      
-            const data = {
-                projectaName : [projectaName, description, link].concat(this.hardSkills),
-                softSkills:this.softSkills
-            }
-
-            getTeam(data)
-
-         
+          response.forEach(element => {
+            console.log(element);
+          });
+          renderTable(response);
         }
 
-   
-
-        
-
-    }
-
-    saveAnswer(score){
-
-        if(this.actual<this.hardSkills.length){
-            // Save hardSkill 
-            this.hardSkills[this.actual]= score;
-        }else{
-            // Save softSkill 
-            this.softSkills[this.actual-this.hardSkills.length]=score;
-
+        if (type == "both") {
+          const response =   await getTeam(data, BALANCED)
+          renderTable(response);
         }
-
-
+      } else {
+        alert("Escoge un método de agregación");
+      }
     }
 
-    cardRender() {
-
+    if (this.actual < this.questions.length - 1) {
+      const slider = document.querySelector(".slider");
+      this.saveAnswer(slider.value);
+      this.actual++;
+      this.cargarPregunta();
     }
+  }
 
-
-    connectedCallback() {
-        this.render();
-        this.cardRender();
+  saveAnswer(score) {
+    if (this.actual < this.hardSkills.length) {
+      // Save hardSkill
+      this.hardSkills[this.actual] = parseInt(score);
+    } else {
+      // Save softSkill
+      this.softSkills[this.actual - this.hardSkills.length] = parseInt(score);
     }
+  }
 
-    render() {
-        this.innerHTML = `
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.innerHTML = `
     <link rel="stylesheet" href="../components/card/card.css">
     <article id="bg">
             <section style="background: #FC7753" class="card_static">
@@ -190,26 +211,19 @@ class CardOption extends HTMLElement {
                 </div>
             </section>
             <section class="card_questions">
-                <div class="number_K">
-                    <h5>¿Cuántas recomendaciones deseas?</h5>
-                    <select class="form-select btn_drop" aria-label="Default select example">
-                        <option selected>0 </option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
+                <div class="agregation">
+                    <h5>¿Qué quieres priorizar?</h5>
+                    <select class="form-select btn_agregation" aria-label="Default select example">
+                        <option selected value='none'>Escoge una opción</option>
+                        <option value="hard-skills">Habilidades Duras</option>
+                        <option value="soft-skills">Personalidad</option>
+                        <option value="both">Equilibrado</option>
                     </select>
                 </div>
 
                 <div class="card_sub">
                     <p class="subtitle">Puntúa de 1 a 10</p>
-                    <h5>Habilidades duras</h5>
+                    <h5 id="skills-type">Habilidades duras</h5>
                 </div>
 
                 <div class="question">
@@ -241,28 +255,27 @@ class CardOption extends HTMLElement {
         </article>
     `;
 
-        const slider = document.getElementById('score');
-        const number = document.getElementById('inputNumber');
+    const slider = document.getElementById("score");
+    const number = document.getElementById("inputNumber");
 
-        slider.addEventListener('input', () => {
-            number.textContent = slider.value;
-        });
+    slider.addEventListener("input", () => {
+      number.textContent = slider.value;
+    });
 
-        // Event listener para el botón "Anterior"
-        document.getElementById('previousBtn').addEventListener('click', () => {
-            this.mostrarAnterior()
-        });
+    // Event listener para el botón "Anterior"
+    document.getElementById("previousBtn").addEventListener("click", () => {
+      this.mostrarAnterior();
+    });
 
-        // Event listener para el botón "Siguiente"
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            this.mostrarSiguiente()
-        });
+    // Event listener para el botón "Siguiente"
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      this.mostrarSiguiente();
+    });
 
-        // Cargar la primera pregunta al cargar la página
-        this.cargarPregunta();
-
-    }
+    // Cargar la primera pregunta al cargar la página
+    this.cargarPregunta();
+  }
 }
 
-customElements.define('card-option-compa', CardOption)
-export default CardOption
+customElements.define("card-option-compa", CardOption);
+export default CardOption;

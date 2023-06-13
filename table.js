@@ -1,25 +1,21 @@
-let jsonData = [
-    {
-        "nombre": "Juan",
-        "edad": 25,
-        "ciudad": "México"
-    },
-    {
-        "nombre": "María",
-        "edad": 30,
-        "ciudad": "Madrid"
-    }
-];
 
+export function renderTable(jsonData){
+
+console.log(jsonData);
 // Obtén la referencia a la tabla en el HTML
-let tabla = document.getElementById("results");
 
+let tabla = document.getElementById("results");
+tabla.innerHTML = '';
 // Crea la cabecera de la tabla
 let thead = document.createElement("thead");
 let trHead = document.createElement("tr");
 
 for (let key in jsonData[0]) {
     let th = document.createElement("th");
+    if(key=='bestHardSkill')
+        key = 'Mejor habilidad dura';
+    if(key=='bestSoftSkill')
+        key = 'Mejor habilidad blanda';
     th.innerHTML = key;
     trHead.appendChild(th);
 }
@@ -43,3 +39,4 @@ jsonData.forEach(function (obj) {
 });
 
 tabla.appendChild(tbody);
+}

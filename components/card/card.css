@@ -145,3 +145,35 @@ h5 {
     border: none;
     border-radius: 5px;
 }
+
+.agregation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn_agregation {
+    width: 100%;
+}
+
+#container-table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#container-table i {
+    font-size: 37px;
+    color: var(--color-red);
+}
+
+.container-title-table {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+h3 {
+    margin: 0;
+}

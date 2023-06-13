@@ -8,7 +8,7 @@ export const BALANCED = "/balanced";
 export const getTeam = async (data, path) => {
     try {
 
-        const raw = await fetch(`${DOMAIN}${PORT}/${HARD_SKILLS}`, {
+        const raw = await fetch(`${DOMAIN}${PORT}/${path}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const getTeam = async (data, path) => {
             team.push(JSON.parse(correctedString))
         });
 
-        console.log(team)
+        return team;
     } catch (error) {
         console.log(error);
     }
