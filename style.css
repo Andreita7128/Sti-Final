@@ -7,7 +7,7 @@
 }
 
 :root {
-    --color-red: #FC7753;
+    --color-red: #EB4832;
     --color-blue: #7494EA;
     --color-accent: #1F1F1F;
     --color-complement-1: #B6D6CC;
@@ -67,7 +67,8 @@ h5 {
 }
 
 main {
-    padding: 0px 11%;
+    align-items: center;
+    padding: 0px 18.5%;
 }
 
 header {
@@ -83,13 +84,15 @@ img {
 }
 
 #cards-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 0;
 }
 
 #container-table {
-    padding: 50px 6%;
+    padding: 50px 0;
     display: flex;
     justify-content: center;
 }
