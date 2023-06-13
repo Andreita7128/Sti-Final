@@ -6,6 +6,9 @@ class CardOption extends HTMLElement {
                 "question": "Desarrollo para IoT (Internet de las cosas):"
             },
             {
+                "question": "Testing y aseguramiento de la calidad"
+            },
+            {
                 "question": "Ciberseguridad"
             },
             {
@@ -18,7 +21,10 @@ class CardOption extends HTMLElement {
                 "question": "Desarrollo front end"
             },
             {
-                "question": "Edición de video y animación Diseño UI"
+                "question": "Edición de video y animación"
+            },
+            {
+                "question": "Diseño UI"
             },
             {
                 "question": "Diseño UX"
@@ -31,6 +37,36 @@ class CardOption extends HTMLElement {
             },
             {
                 "question": "Inglés"
+            },
+            {
+                "question": "A menudo pospongo tareas o responsabilidades importantes hasta el último momento"
+            },
+            {
+                "question": "Suelo generar ideas originales y fuera de lo común en situaciones que requieren creatividad"
+            },
+            {
+                "question": "Cuando no logro completar adecuadamente, ni a tiempo, mi actividad a cargo, suelo delegar esa responsabilidad a otros"
+            },
+            {
+                "question": "En situaciones de colaboración o trabajo en equipo, logro inspirar y guiar a otros hacia el logro de objetivos comunes"
+            },
+            {
+                "question": "Soy una persona que tiende a tomar decisiones de manera independiente y firme, mostrando confianza en mis propias habilidades y convicciones, y no me dejo influir fácilmente por las opiniones de los demás"
+            },
+            {
+                "question": "Tiendo a asumir un papel activo y destacado en situaciones grupales, demostrando liderazgo y habilidades para influir en las decisiones y acciones del grupo, sin imponerme de manera autoritaria y respetando siempre la opinión y el trabajo de mis compañeros"
+            },
+            {
+                "question": "Soy una persona que muestra disposición para enfrentar nuevos desafíos y explorar situaciones fuera de mi zona de confort, demostrando valentía y disposición para probar cosas nuevas"
+            },
+            {
+                "question": "Soy hábil para mantener la calma y tomar decisiones efectivas en situaciones desafiantes o de presión, demostrando resiliencia y adaptabilidad ante las adversidades"
+            },
+            {
+                "question": "Muestro empatía y comprensión hacia las emociones y necesidades de los demás, demostrando una capacidad para conectarme emocionalmente y responder adecuadamente a las situaciones"
+            },
+            {
+                "question": "Tiende a tomar decisiones rápidas y actuar sin pensarlo demasiado, mostrando una inclinación por la espontaneidad y la acción inmediata en lugar de la planificación detallada"
             },
         ];
     }
